@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../static/images/heart.svg">
+    <title>Web Page with 3 Background Images</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('../static/images/15.png') repeat center;
+        }
+
+        .section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            font-size: 2em;
+            text-align: center;
+        }
+
+        .section1 {
+            height: 60vh;
+            background: url('../static/images/upl6600-1.png') no-repeat center;
+            background-size: 50%;
+            position: relative;
+            padding-top: 0;
+            margin-bottom: 20px;
+            font-family: 'Honey', sans-serif;
+            font-size: 60px;
+            color: #333333;
+            text-shadow: none;
+        }
+
+        .section2 {
+            height: 60vh;
+            background: url('../static/images/upl6600-2.png') no-repeat center;
+            background-size: 50%;
+            position: relative;
+            padding-top: 20px;
+            font-size: 12.8468pt;
+            font-family: "MyLight", serif;
+            color: rgb(0, 0, 0);
+            line-height: inherit;
+            letter-spacing: 0.1em;
+            text-shadow: none;
+        }
+
+        .text-container-upper {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .text-container-lower {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .line1 {
+            margin: 0;
+            display: block;
+        }
+
+        @font-face {
+            font-family: 'Honey'; /* Name you will use to refer to the font */
+            src: url('../static/fonts/Honey.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: auto;
+        }
+
+        @font-face {
+            font-family: 'MyLight'; /* Name you will use to refer to the font */
+            src: url('../static/fonts/CormorantInfant-Light.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: auto;
+        }
+
+        .date-container {
+            display: flex;
+            margin-left: -10px;
+        }
+
+        .wedding-day::before, .wedding-day::after{
+            content: ''; /* Creates an empty content block */
+            display: block; /* Makes the pseudo-element a block-level element */
+            width: 100%; /* Adjust the width of the lines */
+            height: 2px; /* Height of the lines */
+            margin: 3px 30px; /* Centers the lines and adds space above and below */
+        }
+
+        .wedding-day::before {
+            margin-left: 50px;
+            margin-right: 15px;
+        }
+
+        .wedding-day-of-week::before, .wedding-day-of-week::after, .wedding-month::before, .wedding-month::after{
+            content: ''; /* Creates an empty content block */
+            display: block; /* Makes the pseudo-element a block-level element */
+            width: 100%; /* Adjust the width of the lines */
+            height: 1px; /* Height of the lines */
+            background-color: #000000; /* Line color */
+            margin: 10px auto; /* Centers the lines and adds space above and below */
+        }
+
+        .section3 {
+            height: 160vh;
+            background: url('../static/images/upl6602.png') repeat center;
+            background-size: 26.5%, cover;
+            width: 100%;
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 50%; /* Positioning the overlay in the middle of the screen */
+            left: 50%; /* Positioning the overlay in the middle of the screen */
+            transform: translate(-50%, -50%); /* Perfect centering */
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px; /* Optional: rounded corners for the overlay */
+        }
+
+        .text-container {
+            text-align: center;
+            font-family: 'MyLight', sans-serif;
+            font-size: 24px;
+            font-weight: normal;
+            color: #333; /* Dark text color for better contrast */
+            text-shadow: none; /* Remove any shadow from the text */
+        }
+
+        .image-container img {
+            max-width: 75%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .section4 {
+            background: url('../static/images/upl6604.png') no-repeat, url('../static/images/16.png');
+            background-size: 50%;
+            position: relative;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .wedding-timetable {
+            position: absolute;
+            margin-top: 50px;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timetable-header {
+            text-align: center;
+            font-family: 'Honey', sans-serif;
+            font-size: 80px;
+            font-weight: normal;
+            color: #333; /* Dark text color for better contrast */
+            text-shadow: none; /* Remove any shadow from the text */
+        }
+
+        .timetable-bold-text {
+            font-size: 24px;
+        }
+
+        .timetable-smaller-text {
+            font-size: 20px;
+        }
+
+        table {
+            font-size: 22px;
+            font-family: 'MyLight', sans-serif;
+            text-shadow: none; /* Remove any shadow from the text */
+            color: #333; /* Dark text color for better contrast */
+            width: 100%; /* Optional: Adjust table width */
+            border-collapse: separate; /* Allows spacing between cells */
+            border-spacing: 140px 40px; /* Adds 20px vertical gap between rows */
+        }
+
+        td {
+            padding: 10px; /* Add space inside cells */
+            text-align: left; /* Align text to the left */
+            /*background-color: #e6ffe6; !* Optional: Add background color for cells *!*/
+            white-space: nowrap; /* Prevent line breaks within cell content */
+        }
+
+        @media (max-width: 380px) {
+            .section1, .section2 {
+                background-size: 150%;
+                height: 40vh;
+                width: 100%;
+            }
+
+            .section3 {
+                height: 135vh;
+                background-size: 40%, cover;
+            }
+
+            .overlay {
+                position: absolute;
+                top: 2%; /* Positioning the overlay in the middle of the screen */
+                right: 0; /* Positioning the overlay in the middle of the screen */
+                left: 0; /* Positioning the overlay in the middle of the screen */
+                transform: translate(0%, 0%); /* Perfect centering */
+                background-color: rgba(255, 255, 255, 0.9);
+                padding: 30px;
+                border-radius: 10px; /* Optional: rounded corners for the overlay */
+            }
+
+            .timetable-header {
+                font-size: 60px;
+            }
+
+            .timetable-bold-text {
+                font-size: 18px;
+            }
+
+            .timetable-smaller-text {
+                font-size: 14px;
+            }
+
+            table {
+                font-size: 16px;
+                border-spacing: 0 0; /* Adds 20px vertical gap between rows */
+            }
+        }
+
+        @media (min-width: 380px) {
+            .section1, .section2 {
+                background-size: 150%;
+                height: 40vh;
+                width: 100%;
+            }
+
+            .section3 {
+                height: 110vh;
+                background-size: 40%, cover;
+            }
+
+            .overlay {
+                position: absolute;
+                top: 2%; /* Positioning the overlay in the middle of the screen */
+                right: 0; /* Positioning the overlay in the middle of the screen */
+                left: 0; /* Positioning the overlay in the middle of the screen */
+                transform: translate(0%, 0%); /* Perfect centering */
+                background-color: rgba(255, 255, 255, 0.9);
+                padding: 30px;
+                border-radius: 10px; /* Optional: rounded corners for the overlay */
+            }
+
+
+            .timetable-header {
+                font-size: 65px;
+            }
+
+            .timetable-bold-text {
+                font-size: 18px;
+            }
+
+            .timetable-smaller-text {
+                font-size: 14px;
+            }
+
+            table {
+                font-size: 16px;
+                border-spacing: 25px 10px;
+            }
+        }
+
+        @media (min-width: 450px) {
+            .section1, .section2 {
+                background-size: 100%;
+                height: 50vh;
+                width: 100%;
+            }
+
+            .section3 {
+                height: 80vh;
+                background-size: 26.5%, cover;
+            }
+
+            .timetable-header {
+                font-size: 70px;
+            }
+
+            .timetable-bold-text {
+                font-size: 20px;
+            }
+
+            .timetable-smaller-text {
+                font-size: 16px;
+            }
+
+            table {
+                font-size: 18px;
+                border-spacing: 40px 20px;
+            }
+        }
+
+        @media (min-width: 700px) {
+            .section1, .section2 {
+                background-size: 100%;
+                height: 50vh;
+                width: 100%;
+            }
+
+            .section3 {
+                height: 120vh;
+                background-size: 35%, cover;
+            }
+        }
+
+        @media (min-width: 1000px) {
+            .section1, .section2 {
+                background-size: 90%;
+                height: 40vh;
+                width: 100%;
+            }
+
+            .section3 {
+                height: 75vh;
+                background-size: 26.5%, cover;
+            }
+
+            .overlay {
+                position: absolute;
+                top: 50%; /* Positioning the overlay in the middle of the screen */
+                left: 50%; /* Positioning the overlay in the middle of the screen */
+                transform: translate(-50%, -50%); /* Perfect centering */
+                background-color: rgba(255, 255, 255, 0.9);
+                padding: 30px;
+                border-radius: 10px; /* Optional: rounded corners for the overlay */
+            }
+
+            .timetable-header {
+                font-size: 90px;
+            }
+
+            .timetable-bold-text {
+                font-size: 24px;
+            }
+
+            .timetable-smaller-text {
+                font-size: 20px;
+            }
+
+            table {
+                font-size: 22px;
+                border-spacing: 140px 40px;
+            }
+        }
+
+        @media (min-width: 1250px) {
+            .section1, .section2 {
+                background-size: 60%;
+                height: 60vh;
+                width: 100%;
+            }
+
+            .section3 {
+                height: 160vh;
+                background-size: 26.5%, cover;
+            }
+
+            .overlay {
+                position: absolute;
+                top: 50%; /* Positioning the overlay in the middle of the screen */
+                left: 50%; /* Positioning the overlay in the middle of the screen */
+                transform: translate(-50%, -50%); /* Perfect centering */
+                background-color: rgba(255, 255, 255, 0.9);
+                padding: 30px;
+                border-radius: 10px; /* Optional: rounded corners for the overlay */
+            }
+
+            .timetable-header {
+                font-size: 90px;
+            }
+
+            .timetable-bold-text {
+                font-size: 24px;
+            }
+
+            .timetable-smaller-text {
+                font-size: 20px;
+            }
+
+            table {
+                font-size: 22px;
+                border-spacing: 140px 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="section section1">
+
+    <div class="text-container-upper">
+        <span style="font-size: 30px; color: grey">✦</span>
+        <br> <br>
+        Матвей & Милана
+    </div>
+</div>
+<div class="section section2">
+    <div class="text-container-lower">
+        <p class="line1">ПРИГЛАШАЕМ НА СВАДЬБУ</p>
+        <br>
+        <div class="date-container">
+            <div>
+                <span class="wedding-day-of-week" style="font-size: 14px">ВОСКРЕСЕНЬЕ</span>
+            </div>
+            <div>
+                <span class="wedding-day" style="font-size: 40px">19</span>
+            </div>
+            <div class="wedding-month-container">
+                <span class="wedding-month" style="font-size: 14px" >&nbsp&nbsp&nbsp&nbspЯНВАРЯ</span>
+            </div>
+        </div>
+        <br> <br>
+        <span style="font-size: 30px; color: grey">✦</span>
+    </div>
+</div>
+<div class="section section3">
+    <div class="overlay">
+        <div class="text-container">
+            <p style="font-family: Honey,serif; font-size: 60px">Дорогой Гость!</p>
+            <p>
+                Мы рады сообщить, что 19.01.2025 состоится самое главное торжество в нашей жизни - день нашей свадьбы!
+            </p>
+            <p>
+                Приглашаем разделить с нами радость этого незабываемого дня.
+            </p>
+            <p>
+                19.01.2025
+                <br>
+                14:00
+            </p>
+        </div>
+        <div class="image-container">
+            <img src="../static/images/together.png">
+        </div>
+    </div>
+</div>
+<div class="section section4">
+    <div class="wedding-timetable">
+        <div class="timetable-header">
+            Свадебное расписание
+        </div>
+        <div class="timetable-table">
+            <table>
+                <tr>
+                    <td>14:30 <br> 19.01.2025</td>
+                    <td> <span class="timetable-bold-text" style="color: black; font-weight: bold">Сбор гостей</span> <br> <span class="timetable-smaller-text">Площадка "Дом у озера"</span></td>
+                </tr>
+                <tr>
+                    <td>14:40 <br> 19.01.2025</td>
+                    <td> <span class="timetable-bold-text" style="color: black; font-weight: bold">Фуршет</span> <br> <span class="timetable-smaller-text">Площадка "Дом у озера"</span></td>
+                </tr>
+                <tr>
+                    <td>15:15 <br> 19.01.2025</td>
+                    <td> <span class="timetable-bold-text" style="color: black; font-weight: bold">Выездная регистрация</span> <br> <span class="timetable-smaller-text">Площадка "Дом у озера"</span></td>
+                </tr>
+                <tr>
+                    <td>16:15 <br> 19.01.2025</td>
+                    <td> <span class="timetable-bold-text" style="color: black; font-weight: bold">Банкет</span> <br> <span class="timetable-smaller-text">Площадка "Дом у озера"</span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
