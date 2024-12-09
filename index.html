@@ -89,7 +89,7 @@
             margin-left: -10px;
         }
 
-        .wedding-day::before, .wedding-day::after{
+        .wedding-day::before, .wedding-day::after {
             content: ''; /* Creates an empty content block */
             display: block; /* Makes the pseudo-element a block-level element */
             width: 100%; /* Adjust the width of the lines */
@@ -102,7 +102,7 @@
             margin-right: 15px;
         }
 
-        .wedding-day-of-week::before, .wedding-day-of-week::after, .wedding-month::before, .wedding-month::after{
+        .wedding-day-of-week::before, .wedding-day-of-week::after, .wedding-month::before, .wedding-month::after {
             content: ''; /* Creates an empty content block */
             display: block; /* Makes the pseudo-element a block-level element */
             width: 100%; /* Adjust the width of the lines */
@@ -148,7 +148,7 @@
             background: url('./images/upl6604.png') no-repeat, url('./images/16.png');
             background-size: 50%;
             position: relative;
-            height: 100vh;
+            height: 110vh;
             width: 100%;
         }
 
@@ -194,6 +194,17 @@
             white-space: nowrap; /* Prevent line breaks within cell content */
         }
 
+        .place-address {
+            font-size: 20px;
+            color: #333;
+            text-shadow: none; /* Remove any shadow from the text */
+        }
+
+        a:link, a:visited, a:active {
+            text-decoration: none;
+            color: #333;
+        }
+
         @media (max-width: 380px) {
             .section1, .section2 {
                 background-size: 150%;
@@ -204,6 +215,10 @@
             .section3 {
                 height: 160vh;
                 background-size: 40%, cover;
+            }
+
+            .section4 {
+                height: 70vh;
             }
 
             .overlay {
@@ -225,8 +240,12 @@
                 font-size: 18px;
             }
 
-            .timetable-smaller-text {
+            .timetable-smaller-text, .place-address {
                 font-size: 14px;
+            }
+
+            .place-address {
+                margin-top: 10px;
             }
 
             table {
@@ -248,7 +267,7 @@
             }
 
             .section4 {
-                height: 80vh;
+                height: 60vh;
             }
 
             .overlay {
@@ -270,7 +289,7 @@
                 font-size: 18px;
             }
 
-            .timetable-smaller-text {
+            .timetable-smaller-text, .place-address {
                 font-size: 14px;
             }
 
@@ -292,6 +311,10 @@
                 background-size: 26.5%, cover;
             }
 
+            .section4 {
+                height: 60vh;
+            }
+
             .timetable-header {
                 font-size: 70px;
             }
@@ -300,7 +323,7 @@
                 font-size: 20px;
             }
 
-            .timetable-smaller-text {
+            .timetable-smaller-text, .place-address {
                 font-size: 16px;
             }
 
@@ -353,7 +376,7 @@
                 font-size: 24px;
             }
 
-            .timetable-smaller-text {
+            .timetable-smaller-text, .place-address {
                 font-size: 20px;
             }
 
@@ -376,7 +399,7 @@
             }
 
             .section4 {
-                height: 100vh;
+                height: 105vh;
             }
 
             .overlay {
@@ -429,7 +452,7 @@
                 <span class="wedding-day" style="font-size: 40px">19</span>
             </div>
             <div class="wedding-month-container">
-                <span class="wedding-month" style="font-size: 14px" >&nbsp&nbsp&nbsp&nbspЯНВАРЯ</span>
+                <span class="wedding-month" style="font-size: 14px">&nbsp&nbsp&nbsp&nbspЯНВАРЯ</span>
             </div>
         </div>
         <br> <br>
@@ -466,21 +489,32 @@
             <table>
                 <tr>
                     <td>14:00 <br> 19.01.2025</td>
-                    <td> <span class="timetable-bold-text" style="color: black; font-weight: bold">Сбор гостей</span> <br> <span class="timetable-smaller-text">Площадка "Дом у озера"</span></td>
+                    <td><span class="timetable-bold-text" style="color: black; font-weight: bold">Сбор гостей</span>
+                        <br> <span class="timetable-smaller-text">Площадка "Дом у озера"</span></td>
                 </tr>
                 <tr>
                     <td>14:15 <br> 19.01.2025</td>
-                    <td> <span class="timetable-bold-text" style="color: black; font-weight: bold">Фуршет</span> <br> <span class="timetable-smaller-text">Площадка "Дом у озера"</span></td>
+                    <td><span class="timetable-bold-text" style="color: black; font-weight: bold">Фуршет</span> <br>
+                        <span class="timetable-smaller-text">Площадка "Дом у озера"</span></td>
                 </tr>
                 <tr>
                     <td>15:00 <br> 19.01.2025</td>
-                    <td> <span class="timetable-bold-text" style="color: black; font-weight: bold">Выездная регистрация</span> <br> <span class="timetable-smaller-text">Площадка "Дом у озера"</span></td>
+                    <td><span class="timetable-bold-text"
+                              style="color: black; font-weight: bold">Выездная регистрация</span> <br> <span
+                            class="timetable-smaller-text">Площадка "Дом у озера"</span></td>
                 </tr>
                 <tr>
                     <td>16:00 <br> 19.01.2025</td>
-                    <td> <span class="timetable-bold-text" style="color: black; font-weight: bold">Банкет</span> <br> <span class="timetable-smaller-text">Площадка "Дом у озера"</span></td>
+                    <td><span class="timetable-bold-text" style="color: black; font-weight: bold">Банкет</span> <br>
+                        <span class="timetable-smaller-text">Площадка "Дом у озера"</span></td>
                 </tr>
             </table>
+        </div>
+        <div class="place-address">
+            Москва, с. Алабушево, ул. Горького, 36
+            <br>
+            <u> <a href="https://yandex.ru/maps/org/dom_u_ozera/223685785823/?ll=37.128328%2C56.016863&z=14.92">На
+                карте</a> </u>
         </div>
     </div>
 </div>
